@@ -2,6 +2,7 @@ import AuthForm from "../components/AuthForm";
 import axios from "axios";
 import type LoginResponse from "../interfaces/LoginResponse";
 import { useNavigate } from "react-router-dom";
+import ApiRoutes from "../api/ApiRoutes";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ export default function SignUp() {
   async function onSignUpSubmit(userName: string, password: string) {
     try {
       const response = await axios.post<LoginResponse>(
-        "http://localhost:5000/signup",
+        ApiRoutes.auth.signup,
         {
           userName: userName,
           password: password,

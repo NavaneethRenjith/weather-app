@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+//TODO: Handle actual isLogged in state
 export default function NavBar() {
   const isLoggedIn: Boolean = true;
 

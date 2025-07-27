@@ -1,6 +1,7 @@
 import type { WeatherCardProps } from "../interfaces/Props";
 import { capitalize } from "../helper/StringHelper";
 
+//TODO: Trailing icon
 export default function WeatherCard({
   city,
   lat,
