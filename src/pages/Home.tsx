@@ -117,23 +117,25 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <SearchBar onSubmit={searchWeatherForCity} />
+      <div className="home-container">
+        <SearchBar onSubmit={searchWeatherForCity} />
 
-      {newLocation != null && (
-        <WeatherCard
-          {...newLocation}
-          ctaIcon=""
-          ctaAction={() => addToFavourites(newLocation)}
+        {newLocation != null && (
+          <WeatherCard
+            {...newLocation}
+            ctaIcon=""
+            ctaAction={() => addToFavourites(newLocation)}
+          />
+        )}
+
+        <Favourites
+          favourites={favourites.map((item) => ({
+            ...item,
+            ctaIcon: "",
+            ctaAction: () => removeFromFavourites(item.id),
+          }))}
         />
-      )}
-
-      <Favourites
-        favourites={favourites.map((item) => ({
-          ...item,
-          ctaIcon: "",
-          ctaAction: () => removeFromFavourites(item.id),
-        }))}
-      />
+      </div>
     </>
   );
 }

@@ -46,9 +46,11 @@ export default function AuthForm({
 
           <button type="submit">{primaryButtonTitle}</button>
 
-          <div>
-            <p>{secondaryText}</p>
-            <Link to={secondaryButtonDestination}>{secondaryButtonTitle}</Link>
+          <div className="secondary-action">
+            <span>{secondaryText}</span>
+            <Link to={secondaryButtonDestination} className="secondary-button">
+              {secondaryButtonTitle}
+            </Link>
           </div>
         </form>
       </div>
