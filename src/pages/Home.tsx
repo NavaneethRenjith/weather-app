@@ -45,21 +45,21 @@ export default function Home() {
   }
 
   //TODO
-  async function searchWeatherForLatLng(lat: string, lng: string) {
-    try {
-      const response = await axios.get<ApiResponse<WeatherResponse>>(
-        ApiRoutes.weather.get,
-        {
-          params: {
-            lat: lat,
-            lon: lng,
-          },
-        }
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async function searchWeatherForLatLng(lat: string, lng: string) {
+  //   try {
+  //     const response = await axios.get<ApiResponse<WeatherResponse>>(
+  //       ApiRoutes.weather.get,
+  //       {
+  //         params: {
+  //           lat: lat,
+  //           lon: lng,
+  //         },
+  //       }
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   async function getFavourites(): Promise<void> {
     try {

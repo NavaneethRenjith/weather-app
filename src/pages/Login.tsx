@@ -18,6 +18,9 @@ export default function Login() {
         { withCredentials: true }
       );
 
+      // Show alert message
+      console.log(response.data.message);
+
       navigate("/");
     } catch (error) {
       console.log(error);
