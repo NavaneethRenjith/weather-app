@@ -1,5 +1,5 @@
 const Urls = {
-    API_BASE_URL: "https://weather-api-s2e8.onrender.com"
-}
+  API_BASE_URL: import.meta.env.VITE_API_BASE_URL,
+};
 
-export default Urls
+export default Urls;
