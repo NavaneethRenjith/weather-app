@@ -124,7 +124,7 @@ export default function Home() {
         {newLocation != null && (
           <WeatherCard
             {...newLocation}
-            ctaIcon="src/assets/icons/heart.png"
+            ctaIcon="/icons/heart.png"
             ctaAction={() => addToFavourites(newLocation)}
           />
         )}
@@ -132,7 +132,7 @@ export default function Home() {
         <Favourites
           favourites={favourites.map((item) => ({
             ...item,
-            ctaIcon: "src/assets/icons/delete.png",
+            ctaIcon: "/icons/delete.png",
             ctaAction: () => removeFromFavourites(item.id),
           }))}
         />
