@@ -40,6 +40,7 @@ export default function Home() {
 
       setNewLocation(result.data);
     } catch (error) {
+      alert("Could not find weather for this city");
       console.log(error);
     }
   }
@@ -123,7 +124,7 @@ export default function Home() {
         {newLocation != null && (
           <WeatherCard
             {...newLocation}
-            ctaIcon=""
+            ctaIcon="src/assets/icons/heart.png"
             ctaAction={() => addToFavourites(newLocation)}
           />
         )}
@@ -131,7 +132,7 @@ export default function Home() {
         <Favourites
           favourites={favourites.map((item) => ({
             ...item,
-            ctaIcon: "",
+            ctaIcon: "src/assets/icons/delete.png",
             ctaAction: () => removeFromFavourites(item.id),
           }))}
         />

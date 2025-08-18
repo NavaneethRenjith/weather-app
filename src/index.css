@@ -4,7 +4,7 @@ body {
   font-family: sans-serif; /* optional */
 }
 
-
+/* === Navbar === */
 .navbar {
   width: 100vw;
   background-color: #fff;
@@ -13,14 +13,14 @@ body {
 }
 
 .navbar-inner {
-  width: 70%;
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
-
-
 
 .navbar .signup-btn {
   text-decoration: none;
@@ -31,30 +31,67 @@ body {
   color: #000;
 }
 
+/* === Home container === */
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding-top: 2rem;
+  gap: 2rem;
 }
 
+/* === Weather Card === */
 .weather-card {
   width: 25rem;
+  max-width: 100%;
   position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
+.weather-info {
+  text-align: left;
+}
+
+.card-cta-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.card-cta-button:focus {
+  outline: none; /* removes default focus outline */
+}
+
+.card-cta-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain; /* prevents distortion */
+}
+
+/* === Search Bar === */
 .search-container {
   margin-bottom: 2rem;
 }
 
+.search-container form {
+  display: flex;
+  flex-direction: row; /* default: side by side */
+  justify-content: center;
+}
+
 .search-bar {
   width: 30rem;
+  max-width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px 0 0 5px;
+  box-sizing: border-box;
 }
 
 .search-button {
@@ -66,7 +103,7 @@ body {
   cursor: pointer;
 }
 
-/* Login */
+/* === Login Page === */
 .login-container {
   display: flex;
   justify-content: center;
@@ -78,7 +115,8 @@ body {
   background-color: #929090;
   padding: 2rem;
   border-radius: 12px;
-  width: 320px;
+  width: 90%;
+  max-width: 320px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -137,4 +175,33 @@ body {
 
 .secondary-button:hover {
   color: #333;
+}
+
+/* === Responsive styles === */
+@media (max-width: 768px) {
+  .navbar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-container form {
+    flex-direction: column; /* stack input + button */
+    align-items: stretch;
+  }
+
+  .search-bar {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+  }
+
+  .search-button {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .weather-card {
+    flex-direction: column; /* stack image/text vertically */
+    text-align: center;
+  }
 }

@@ -17,9 +17,9 @@ export default function WeatherCard({
 
   return (
     <>
-      <div className="weather-card shadow p-3 mb-5 bg-body-tertiary rounded">
+      <div className="weather-card shadow p-3 mb-2 bg-body-tertiary rounded">
         <img src={image ?? ""} alt="Add" />
-        <div>
+        <div className="weather-info">
           {location && <h3 className="weather-city">{capitalize(location)}</h3>}
           <h5 className="">{temp}</h5>
           {description && (
@@ -27,8 +27,8 @@ export default function WeatherCard({
           )}
           {humidity && <p className="">Humidity {humidity}%</p>}
         </div>
-        <button onClick={ctaAction}>
-          <img src={ctaIcon} alt="Add" />
+        <button onClick={ctaAction} className="card-cta-button">
+          <img src={ctaIcon} alt="Add" className="card-cta-icon" />
         </button>
       </div>
     </>
