@@ -51,9 +51,11 @@ body {
   align-items: center;
   padding: 1rem;
   box-sizing: border-box;
+  gap: 1rem;
 }
 
 .weather-info {
+  flex: 1; /* take available space */
   text-align: left;
 }
 

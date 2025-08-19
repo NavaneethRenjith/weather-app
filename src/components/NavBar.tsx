@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../store/auth";
 
-//TODO: Handle actual isLogged in state
 export default function NavBar() {
-  const isLoggedIn: Boolean = true;
+  const { isLoggedIn } = useAuthStore();
 
   return (
     <nav className="navbar">

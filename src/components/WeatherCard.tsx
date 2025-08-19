@@ -1,7 +1,7 @@
 import type { WeatherCardProps } from "../interfaces/Props";
 import { capitalize } from "../helper/StringHelper";
+import { useAuthStore } from "../store/auth";
 
-//TODO: Trailing icon
 export default function WeatherCard({
   city,
   lat,
@@ -14,6 +14,7 @@ export default function WeatherCard({
   ctaAction,
 }: WeatherCardProps) {
   const location = city?.trim() ? city : `${lat}, ${lon}`;
+  const { isLoggedIn } = useAuthStore();
 
   return (
     <>
@@ -27,9 +28,11 @@ export default function WeatherCard({
           )}
           {humidity && <p className="">Humidity {humidity}%</p>}
         </div>
-        <button onClick={ctaAction} className="card-cta-button">
-          <img src={ctaIcon} alt="Add" className="card-cta-icon" />
-        </button>
+        {isLoggedIn && (
+          <button onClick={ctaAction} className="card-cta-button">
+            <img src={ctaIcon} alt="Add" className="card-cta-icon" />
+          </button>
+        )}
       </div>
     </>
   );

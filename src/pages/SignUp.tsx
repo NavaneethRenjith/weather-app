@@ -3,9 +3,11 @@ import axios from "axios";
 import type LoginResponse from "../interfaces/LoginResponse";
 import { useNavigate } from "react-router-dom";
 import ApiRoutes from "../api/ApiRoutes";
+import { useAuthStore } from "../store/auth";
 
 export default function SignUp() {
   const navigate = useNavigate();
+  const { login } = useAuthStore();
 
   async function onSignUpSubmit(userName: string, password: string) {
     try {
@@ -21,6 +23,7 @@ export default function SignUp() {
       // Show alert message
       console.log(response.data.message);
 
+      login();
       navigate("/");
     } catch (error) {
       // Show alert message
