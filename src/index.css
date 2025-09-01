@@ -79,6 +79,7 @@ body {
 /* === Search Bar === */
 .search-container {
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .search-container form {
@@ -103,6 +104,33 @@ body {
   color: white;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
+}
+
+/* Dropdown box */
+.city-dropdown {
+  position: absolute;
+  top: 100%;   /* directly below the input */
+  left: 0;
+  width: 100%; /* match input width */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0 0 6px 6px;
+  margin: 0;
+  padding: 0.5rem 0;
+  list-style: none;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+/* Dropdown items */
+.city-dropdown li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.city-dropdown li:hover {
+  background-color: #f0f0f0;
 }
 
 /* === Login Page === */

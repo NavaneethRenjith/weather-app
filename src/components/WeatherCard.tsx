@@ -4,8 +4,6 @@ import { useAuthStore } from "../store/auth";
 
 export default function WeatherCard({
   city,
-  lat,
-  lon,
   temp,
   description,
   image,
@@ -13,7 +11,7 @@ export default function WeatherCard({
   ctaIcon,
   ctaAction,
 }: WeatherCardProps) {
-  const location = city?.trim() ? city : `${lat}, ${lon}`;
+  const location = city?.trim() ? city : "Your location";
   const { isLoggedIn } = useAuthStore();
 
   return (

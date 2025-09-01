@@ -22,6 +22,7 @@ export default function Home() {
     getFavourites();
   }, []);
 
+  // Function to fetch weather data for city
   async function searchWeatherForCity(city: string): Promise<void> {
     try {
       const response = await axios.get<ApiResponse<WeatherResponse>>(
@@ -45,22 +46,31 @@ export default function Home() {
     }
   }
 
-  //TODO
-  // async function searchWeatherForLatLng(lat: string, lng: string) {
-  //   try {
-  //     const response = await axios.get<ApiResponse<WeatherResponse>>(
-  //       ApiRoutes.weather.get,
-  //       {
-  //         params: {
-  //           lat: lat,
-  //           lon: lng,
-  //         },
-  //       }
-  //     );
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+  // Function to fetch weather data for geocoordinates
+  async function searchWeatherForLatLng(lat: number, lon: number) {
+    try {
+      const response = await axios.get<ApiResponse<WeatherResponse>>(
+        ApiRoutes.weather.get,
+        {
+          params: {
+            lat: lat,
+            long: lon,
+          },
+        }
+      );
+      const result = response.data;
+
+      if (response.data === null) {
+        //TODO: Show alert
+        console.log(result.message);
+        return;
+      }
+
+      setNewLocation(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   async function getFavourites(): Promise<void> {
     try {
@@ -119,7 +129,10 @@ export default function Home() {
     <>
       <NavBar />
       <div className="home-container">
-        <SearchBar onSubmit={searchWeatherForCity} />
+        <SearchBar
+          onSubmit={searchWeatherForCity}
+          onLocationSubmit={searchWeatherForLatLng}
+        />
 
         {newLocation != null && (
           <WeatherCard
